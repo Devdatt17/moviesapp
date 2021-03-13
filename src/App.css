@@ -1,38 +1,161 @@
+/* Importing the contents  */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+
+/*! ~~~~~~~~~~~~~~~~~~~~ from Index.js ~~~~~~~~~~~~~~~~~~~~ */
+
+
+/* rgb(39, 37, 37) */
+
+body {
+    background-color: rgb(41, 39, 39);
+    color: white;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+}
+
+
+/*? ##################### From App.js ##################### */
+
 .App {
-  text-align: center;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+/*? ##################### From App.js ##################### */
+
+.App :first-child {
+    align-items: flex-start;
+    width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+/**  -------------- from Heading.js component -----------------  */
+
+.heading {
+    display: flex;
+    padding: 20px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    font-weight: bold;
+    background-image: repeating-linear-gradient( rgb(213, 6, 255), rgb(39, 37, 37));
+    color: rgba(230, 13, 13, 0.959);
+    position: sticky;
+    top: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+/**  --------------from Heading.js component-----------------  */
+
+.searchcontainer {
+    width: 75%;
+    padding: 40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
 
-.App-link {
-  color: #61dafb;
+
+/**  --------------from Heading.js component-----------------  */
+
+input {
+    height: 30px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+/**  --------------from Heading.js component-----------------  */
+
+header {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 120px;
+    text-shadow: 10px 8px 6px black;
+}
+
+
+/**  --------------from Heading.js component-----------------  */
+
+button {
+    background-color: rgb(181, 181, 247);
+}
+
+
+/** ---------- From Movies.js component ----------  */
+
+.movie {
+    width: 380px;
+    margin: 60px;
+    border-radius: 3px;
+    box-shadow: 5px 5px 8px rgb(243, 237, 237);
+}
+
+
+/** ---------- From Movies.js component ----------  */
+
+.movie img {
+    max-width: 100%;
+}
+
+
+/** ---------- From Movies.js component ----------  */
+
+span {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    background-color: #22224b;
+    padding: 10px;
+    color: chartreuse;
+    font-weight: bold;
+}
+
+
+/** ---------- From Movies.js component ----------  */
+
+.fix {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+/** ---------- From Movies.js component ----------  */
+
+.mid {
+    color: rgb(52, 101, 236);
+}
+
+
+/** ---------- From Movies.js component ----------  */
+
+.end {
+    color: red;
+}
+
+
+/** ---------- From Movies.js component ----------  */
+
+.maincontent {
+    text-align: center;
+}
+
+
+/** ---------- From Movies.js component ----------  */
+
+.overview {
+    margin-top: -20px;
+    padding: 20px;
+}
+
+
+/** ---------- From Movies.js component ----------  */
+
+.overview:hover {
+    visibility: visible;
+    color: rgb(226, 134, 13);
+    font-weight: bolder;
 }
