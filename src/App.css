@@ -191,3 +191,30 @@ li.dropdown {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+
+/*  ====== Responsive ======= */
+
+@media only screen and (max-width: 600px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .movie {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .heading {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .searchcontainer {
+        width: 100%;
+    }
+    .dropbtn {
+        display: none;
+    }
+}
