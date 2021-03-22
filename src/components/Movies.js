@@ -10,21 +10,22 @@ const IMAGE_API = 'https://image.tmdb.org/t/p/w780'
 //? Here the values are directly passed as props instead of props
 //? Honestly i have no idea why this is used
 
-const Movies = ({ title, poster_path, overview, vote_average })=>{
-    return(
+const Movies = ({ title, poster_path, overview, vote_average }) => {
+    return (
         <div className="movie">
-            <img src={IMAGE_API + poster_path } alt={ title }/>
+            <img src={ poster_path ? (IMAGE_API + poster_path) : 
+                "https://images.unsplash.com/photo-1542204165-65bf26472b9b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80"} alt={title} />
             <div className="fix">
-            <h3 className="maintitle">{ title }</h3>
-            {
-                (vote_average < 8) ? (
-                (vote_average > 6 ) ? <span className="mid">{vote_average}</span>
-                : <span className="end">{vote_average}</span>
-                ) :
-                (
-                    <span>{ vote_average }</span>
-                )
-            }
+                <h3 className="maintitle">{title}</h3>
+                {
+                    (vote_average < 8) ? (
+                        (vote_average > 6) ? <span className="mid">{vote_average}</span>
+                            : <span className="end">{vote_average}</span>
+                    ) :
+                        (
+                            <span>{vote_average}</span>
+                        )
+                }
             </div>
             <hr />
             <div className="overview">
