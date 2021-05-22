@@ -4,8 +4,9 @@ import Movies from './components/Movies'
 import SortMovies from './components/SortMovies';
 import TopBar from './components/TopBar'
 
-const MOVIE_API='https://api.themoviedb.org/3/discover/movie?api_key=8a9cc99f32fb447167876b3a86789b79&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1';
-const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=8a9cc99f32fb447167876b3a86789b79&query=`;
+const MOVIE_API_KEY = process.env.REACT_APP_API_KEY
+const MOVIE_API=`https://api.themoviedb.org/3/discover/movie?api_key=${MOVIE_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`;
+const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${MOVIE_API_KEY}&query=`;
 
 function App() {
   
@@ -66,7 +67,6 @@ function App() {
       searchTerm={searchQuery}
       />
     </div>
-      
     {
         movies.length > 0 && movies.map(items=>(
             <Movies 
