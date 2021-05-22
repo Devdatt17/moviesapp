@@ -38,8 +38,8 @@ function SortMovies(props) {
   return (
     <div>
       <ul>
-        <li class="dropdown">
-          <p class="dropbtn">Sorting</p>
+        <li className="dropdown">
+          <p className="dropbtn">Sorting</p>
           <div className="dropdown-content">
             <button value="ascending" className="sortbutton" onClick={handleAscSort}>Ascending Order</button>
             <button value="decending" className="sortbutton" onClick={handleDscSort}>Descending Order</button>
