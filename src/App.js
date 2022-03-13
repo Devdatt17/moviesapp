@@ -3,15 +3,14 @@ import './App.css';
 import Movies from './components/Movies'
 import SortMovies from './components/SortMovies';
 import TopBar from './components/TopBar'
-
-const MOVIE_API_KEY = process.env.REACT_APP_API_KEY
-const MOVIE_API=`https://api.themoviedb.org/3/discover/movie?api_key=${MOVIE_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`;
-const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${MOVIE_API_KEY}&query=`;
+import {useDispatch,useSelector} from 'react-redux'
+import {viewMovie,searchMovie} from './redux/action'
 
 function App() {
-  
+  const dispatch = useDispatch()
+  const movie = useSelector(state=>state)
   //? initial state is declared as an array
-  const [movies,setMovies] = React.useState([]);
+  // const [movies,setMovies] = React.useState([]);
   const [searchQuery,setSearchQuery] = React.useState('');
   const [ascOrder,setAscOrder] = React.useState([]);
   const [dscOrder,setDscOrder] = React.useState([]);
@@ -26,21 +25,13 @@ function App() {
 
 
   React.useEffect(()=>{
-      fetch(MOVIE_API)
-      .then(res => res.json())
-      .then((data) =>{
-          setMovies(data.results)
-        })
-    },[])
+      dispatch(viewMovie())
+    },[dispatch])
     
     //* submit and change functions
 
     const handleSubmit=(e)=>{
-      fetch(SEARCH_API+`${ searchQuery }`)
-          .then(res => res.json())
-          .then((data)=>{
-            setMovies(data.results)
-          })
+      dispatch(searchMovie(searchQuery))
       e.preventDefault();
     };
   
@@ -54,7 +45,7 @@ function App() {
       <header>Movies Masti</header>
 
       <SortMovies 
-      sortMovie={movies}
+      sortMovie={movie}
       sortAscending={setAscOrder}
       sortDescending={setDscOrder}
       ascState={ascOrder}
@@ -68,7 +59,7 @@ function App() {
       />
     </div>
     {
-        movies.length > 0 && movies.map(items=>(
+        movie.length > 0 && movie.map(items=>(
             <Movies 
             key={items.id} 
             {...items}
