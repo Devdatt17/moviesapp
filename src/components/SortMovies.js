@@ -1,4 +1,10 @@
 import React from 'react'
+import {
+  Grid,
+  styled
+} from '@mui/material'
+import Button from '@mui/material/Button'
+import { indigo, blue, common } from '@mui/material/colors'
 
 function SortMovies(props) {
 
@@ -15,7 +21,7 @@ function SortMovies(props) {
       }
       return comparision;
     }
-    console.log(props.sortMovie.sort(compare))
+
     props.sortAscending(props.sortMovie.sort(compare));
   }
 
@@ -32,12 +38,15 @@ function SortMovies(props) {
       }
       return comparision * -1;
     }
-    console.log(props.sortMovie.sort(compare))
+    
     props.sortDescending(props.sortMovie.sort(compare));
   }
-  return (
-    <div>
-      <ul>
+
+  // Ascending and Descending needs to be dropdown instead of buttons
+  /*
+    For reference
+
+    <ul>
         <li className="dropdown">
           <p className="dropbtn">Sorting</p>
           <div className="dropdown-content">
@@ -46,7 +55,34 @@ function SortMovies(props) {
           </div>
         </li>
       </ul>
-    </div>
+
+  */
+
+  const AscStyledButton = styled(Button)(()=>({
+      color: common.white,
+      background: indigo[500],
+      '&:hover': {
+        backgroundColor: indigo[800],
+      },
+    }))
+
+  const DescStyledButton = styled(Button)(()=>({
+      color: common.white,
+      backgroundColor: blue[500],
+      '&:hover': {
+        backgroundColor: blue[800],
+      },
+  }))
+
+  return (
+    <Grid container direction="row" spacing={2}>
+      <Grid item>
+        <AscStyledButton variant="outlined" onClick={handleAscSort} className="asc-button-color">Asc</AscStyledButton>
+      </Grid>
+      <Grid item>
+        <DescStyledButton variant="outlined" onClick={handleDscSort} className="desc-button-color">Desc</DescStyledButton>
+      </Grid>
+    </Grid>
   )
 }
 

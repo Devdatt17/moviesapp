@@ -1,21 +1,31 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import { InputBase } from '@mui/material'
+import { styled } from '@mui/material/styles';
+
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: 'inherit',
+    '& .MuiInputBase-input': {
+      padding: theme.spacing(1, 1, 1, 0),
+      // vertical padding + font size from searchIcon
+      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+      width: '100%',
+    },
+  }));
 
 function Topbar(props) {
 
+    const {
+        handleOnChange
+    } = props
+
     return (
-        <>
-        <form onSubmit={props.submitFunction} className="searchcontainer">
-            <input
-                type="text"
-                placeholder="Enter the movie name....."
-                value={props.searchQuery}
-                onChange={props.changeFunction}
+        <Fragment>
+            <StyledInputBase
+                placeholder='Enter the movie name....'
+                onKeyPress={handleOnChange}
+                inputProps={{ "aria-label": 'search' }}
             />
-            <button type="submit">
-                Search
-            </button>
-        </form>
-        </>
+        </Fragment>
     )
 }
 
